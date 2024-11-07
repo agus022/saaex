@@ -1,5 +1,5 @@
 <?php require('views/header/header_administrador.php'); ?>
-<h1>Dias</h1>
+<h1>Espacio</h1>
     <?php 
       if (isset($mensaje)) : $app->alert($tipo,$mensaje);endif;
     ?>
@@ -17,7 +17,7 @@
   <tbody>
   <?php foreach ($espacios as $espacio):?>
     <tr>
-        <th scope="row"><?php echo $dia['id_espacio']; ?></th>
+        <th scope="row"><?php echo $espacio['id_espacio']; ?></th>
         <td ><?php echo $espacio['espacio'];?></td>
         <td ><?php echo $espacio['campus'];?></td>
         <td ><?php echo $espacio['edificio'];?></td>
