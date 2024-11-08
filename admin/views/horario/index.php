@@ -27,7 +27,7 @@
         <td ><?php echo $horario['edificio'];?></td>
         <td>
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <a href="horario.php?accion=actualizar&id=<?php echo $horario['id_sesion_dia']; ?>" class="btn btn-warning">Actualizar</a>
+                <a href="horario.php?accion=modificar&id=<?php echo $horario['id_sesion_dia']; ?>" class="btn btn-warning">Actualizar</a>
                 <a href="horario.php?accion=delete&id=<?php echo $horario['id_sesion_dia']; ?>" class="btn btn-danger">Eliminar</a>
             </div>
         </td>

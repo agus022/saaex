@@ -6,6 +6,7 @@ $id = (isset($_GET['id'])) ? $_GET['id'] : null;
 switch($accion){
     case 'actualizar':
         $espacios = $app -> readOne($id); 
+        $espacios = $espacios[0];
         include('views/espacio/crear.php');
         break;
     case 'modificar':

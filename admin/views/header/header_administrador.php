@@ -15,6 +15,9 @@
                     <a class="dropdown-item" href="carrera.php">Carrera</a>
                     <a class="dropdown-item" href="dia.php">Dia</a>
                     <a class="dropdown-item" href="espacio.php">Espacio</a>
+                    <a class="dropdown-item" href="horario.php">Horario</a>
+                    <a class="dropdown-item" href="evento.php">Evento</a>
+                    <a class="dropdown-item" href="actividad.php">Actividad</a>
                 </div>
             </li>
             <li class="nav-item dropdown">

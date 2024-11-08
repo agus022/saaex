@@ -6,6 +6,7 @@ $id = (isset($_GET['id'])) ? $_GET['id'] : null;
 switch($accion){
     case 'actualizar':
         $dias = $app -> readOne($id); 
+        $dias = $dias[0];
         include('views/dia/crear.php');
         break;
     case 'modificar':

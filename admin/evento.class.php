@@ -31,8 +31,8 @@ class evento extends Sistema{
         lugar = :lugar , 
         ciudad = :ciudad , 
         estado = :estado , 
-        pais = :pais , 
-        where id_evento = :id_evento;";
+        pais = :pais  
+        where id_evento = :id_evento ";
         $actualizar = $this->conn->prepare($sql);
         $actualizar -> bindParam(':id_evento', $id, PDO::PARAM_STR);
         $actualizar -> bindParam(':evento', $data['evento'], PDO::PARAM_STR);
@@ -52,7 +52,7 @@ class evento extends Sistema{
         $this->conexion();
         $sql = 'delete from evento where id_evento = :id';
         $borrar = $this->conn->prepare($sql);
-        $borrar->bindparam(':id', $id, PDO::PARAM_INT);
+        $borrar->bindparam(':id', $id, PDO::PARAM_STR);
         $borrar->execute();
         $result = $borrar->rowCount();
         return $result;

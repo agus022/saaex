@@ -2,7 +2,7 @@
 <h1><?php if($accion == "crear"): echo('Nuevo'); else: echo ('Actualizar'); endif;?> Actividad</h1>
 
 <form method="post" 
-action="actividad.php?accion=<?php if($accion == "crear"):echo('nuevo'); else:echo('modificar&id='.$id);endif;?>">
+action="actividad.php?accion=<?php if($accion == "crear"):echo('nuevo'); else:echo('actualizar&id='.$id);endif;?>">
 <div class="mb-3">
     <label for="exampleactividad" class="form-label">Nombre de la actividad</label>
     <input type="text" name="data[actividad]" placeholder="Escribe aqui el nombre" class="form-control" 
@@ -20,7 +20,7 @@ action="actividad.php?accion=<?php if($accion == "crear"):echo('nuevo'); else:ec
         <?php foreach($tipos as $tipo):?>
         <?php 
         $selecionar = "";
-        if($secciones['id_tipo'] == $tipo['id_tipo']){
+        if($actividades['id_tipo'] == $tipo['id_tipo']){
             $selecionar = "selected";
         }        
         ?>

@@ -2,7 +2,7 @@
 <h1><?php if($accion == "crear"): echo('Nuevo'); else: echo ('Actualizar'); endif;?> horario</h1>
 
 <form method="post" 
-action="horario.php?accion=<?php if($accion == "crear"):echo('nuevo'); else:echo('modificar&id='.$id);endif;?>">
+action="horario.php?accion=<?php if($accion == "crear"):echo('nuevo'); else:echo('actualizar&id='.$id);endif;?>">
 <div class="mb-3">
     <label for="examplehorario" class="form-label">Hora de inicio</label>
     <input type="time" name="data[hora_inicio]" placeholder="Escribe aqui el nombre" class="form-control" 
@@ -20,11 +20,11 @@ action="horario.php?accion=<?php if($accion == "crear"):echo('nuevo'); else:echo
         <?php foreach($dias as $dia):?>
         <?php 
         $selecionar = "";
-        if($secciones['id_dia'] == $dia['id_dia']){
-            $selecionar = "selected";
+        if($horarios['id_dia'] == $dia['id_dia']){
+            $selecionar = " selected ";
         }        
         ?>
-        <option value="<?php echo($dia['id_dia']);?>"<?php echo($selecionar);?>><?php echo($dia['dia']);?></option>
+        <option value="<?php echo($dia['id_dia']);?>" <?php echo($selecionar);?>><?php echo($dia['dia']);?></option>
         <?php endforeach;?>
     </select>
 </div>
@@ -34,12 +34,12 @@ action="horario.php?accion=<?php if($accion == "crear"):echo('nuevo'); else:echo
     <option>Grupos disponibles</option>
         <?php foreach($grupos as $grupo):?>
         <?php 
-        $selecionar = "";
-        if($secciones['id_grupo'] == $grupo['id_grupo']){
-            $selecionar = "selected";
+        $selecionarg = "";
+        if($horarios['id_grupo'] == $grupo['id_grupo']){
+            $selecionarg = " selected ";
         }        
         ?>
-        <option value="<?php echo($grupo['id_grupo']);?>"<?php echo($selecionar);?>><?php echo($grupo['id_grupo']);?></option>
+        <option value="<?php echo($grupo['id_grupo']);?>"<?php echo($selecionarg);?>><?php echo($grupo['id_grupo']);?></option>
         <?php endforeach;?>
     </select>
 </div>
@@ -49,12 +49,12 @@ action="horario.php?accion=<?php if($accion == "crear"):echo('nuevo'); else:echo
     <option>Espacios disponibles</option>
         <?php foreach($espacios as $espacio):?>
         <?php 
-        $selecionar = "";
-        if($secciones['id_espacio'] == $espacio['id_espacio']){
-            $selecionar = "selected";
+        $selecionare = "";
+        if($horarios['id_espacio'] == $espacio['id_espacio']){
+            $selecionare = " selected ";
         }        
         ?>
-        <option value="<?php echo($espacio['id_espacio']);?>"<?php echo($selecionar);?>><?php echo($espacio['espacio']);?></option>
+        <option value="<?php echo($espacio['id_espacio']);?>"<?php echo($selecionare);?>><?php echo($espacio['espacio']);?></option>
         <?php endforeach;?>
     </select>
 </div>

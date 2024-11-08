@@ -24,14 +24,14 @@ class horario extends Sistema {
         hora_termino = :hora_termino , 
         id_dia = :id_dia , 
         id_grupo = :id_grupo , 
-        id_espacio = id_espacio 
+        id_espacio = :id_espacio 
         where id_sesion_dia = :id_sesion_dia;";
         $actualizar = $this->conn->prepare($sql);
         $actualizar -> bindParam(':id_sesion_dia', $id, PDO::PARAM_INT);
         $actualizar -> bindParam(':hora_inicio', $data['hora_inicio'], PDO::PARAM_STR);
         $actualizar -> bindParam(':hora_termino', $data['hora_termino'], PDO::PARAM_STR);
         $actualizar -> bindParam(':id_dia', $data['id_dia'], PDO::PARAM_INT);
-        $actualizar -> bindParam(':id_grupo', $data['id_grupo'], PDO::PARAM_INT);
+        $actualizar -> bindParam(':id_grupo', $data['id_grupo'], PDO::PARAM_STR);
         $actualizar -> bindParam(':id_espacio', $data['id_espacio'], PDO::PARAM_INT);
         $actualizar -> execute();
         $result = $actualizar -> rowCount();
