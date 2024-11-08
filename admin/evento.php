@@ -5,7 +5,8 @@ $accion=(isset($_GET['accion'])) ? $_GET['accion'] : null;
 $id = (isset($_GET['id'])) ? $_GET['id'] : null;
 switch($accion){
     case 'actualizar':
-        $eventos = $app -> readOne($id); 
+        $eventos = $app -> readOne($id);
+        $eventos = $eventos[0];
         include('views/evento/crear.php');
         break;
     case 'modificar':

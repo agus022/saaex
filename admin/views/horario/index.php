@@ -1,7 +1,7 @@
 <?php require('views/header/header_administrador.php'); ?>
 <h1>Horario</h1>
     <?php 
-      if (isset($mensaje)) : $app->alert($tipo,$mensaje);endif;
+      if (isset($mensaje)) : $app->alerta($tipo,$mensaje);endif;
     ?>
     <a href="horario.php?accion=crear" class="btn btn-success">Nuevo</a>
     <table class="table">
@@ -13,6 +13,7 @@
         <th scope="col">Actividad</th>
         <th scope="col">Rama</th>
         <th scope="col">Edificio</th>
+        <th scope="col">Opciones</th>
     </tr>
   </thead>
   <tbody>

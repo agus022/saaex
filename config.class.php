@@ -2,7 +2,7 @@
 define("SGBD", 'pgsql');
 define("DBHOST", 'localhost');
 define("DBNAME", 'saaex');
-define("DBUSER", 'postgres');
-define("DBPASS", 'agustin1234');
+define("DBUSER", 'miguetron');
+define("DBPASS", 'Majorasmask_3ds');
 define("DBPORT", '5432');
 ?>

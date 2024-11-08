@@ -4,9 +4,10 @@ class evento extends Sistema{
     function create($data){
         $result = [];
         $this->conexion();
-        $sql = 'insert into evento (evento, descripcion, hora_inicio, hora_termino, lugar, ciudad, estado, pais) 
-                values ( :evento , :descripcion , :hora_inicio , :hora_termino , :lugar , :ciudad , :estado , :pais)';
+        $sql = 'insert into evento (id_evento, evento, descripcion, hora_inicio, hora_termino, lugar, ciudad, estado, pais) 
+                values ( :id_evento , :evento , :descripcion , :hora_inicio , :hora_termino , :lugar , :ciudad , :estado , :pais)';
         $insertar = $this->conn->prepare($sql);
+        $insertar -> bindparam(':id_evento',$data['id_evento'], PDO::PARAM_STR);
         $insertar -> bindparam(':evento',$data['evento'], PDO::PARAM_STR);
         $insertar -> bindparam(':descripcion',$data['descripcion'], PDO::PARAM_STR);
         $insertar -> bindparam(':hora_inicio',$data['hora_inicio'], PDO::PARAM_STR);
@@ -33,7 +34,7 @@ class evento extends Sistema{
         pais = :pais , 
         where id_evento = :id_evento;";
         $actualizar = $this->conn->prepare($sql);
-        $actualizar -> bindParam(':id_evento', $id, PDO::PARAM_INT);
+        $actualizar -> bindParam(':id_evento', $id, PDO::PARAM_STR);
         $actualizar -> bindParam(':evento', $data['evento'], PDO::PARAM_STR);
         $actualizar -> bindParam(':descripcion', $data['descripcion'], PDO::PARAM_STR);
         $actualizar -> bindParam(':hora_inicio', $data['hora_inicio'], PDO::PARAM_STR);
@@ -61,7 +62,7 @@ class evento extends Sistema{
         $this->conexion();
         $consulta='select * from evento where id_evento = :id';
         $sql = $this->conn->prepare($consulta);
-        $sql->bindparam(':id', $data, PDO::PARAM_INT);
+        $sql->bindparam(':id', $data, PDO::PARAM_STR);
         $sql->execute();
         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
         return $result;

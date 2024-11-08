@@ -1,7 +1,7 @@
 <?php require('views/header/header_administrador.php'); ?>
 <h1>Evento</h1>
     <?php 
-      if (isset($mensaje)) : $app->alert($tipo,$mensaje);endif;
+      if (isset($mensaje)) : $app->alerta($tipo,$mensaje);endif;
     ?>
     <a href="evento.php?accion=crear" class="btn btn-success">Nuevo</a>
     <table class="table">
@@ -16,6 +16,7 @@
         <th scope="col">Ciudad</th>
         <th scope="col">Estado</th>
         <th scope="col">Pais</th>
+        <th scope="col">Opciones</th>
     </tr>
   </thead>
   <tbody>

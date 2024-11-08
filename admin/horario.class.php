@@ -4,13 +4,13 @@ class horario extends Sistema {
     function create ($data){
         $result = [];
         $this->conexion();
-        $sql = "insert into horario (hora_inicio, id_dia, id_grupo, id_espacio) 
-                values (:horario , :hora_inicio , :hora_termino , :id_dia , :id_grupo , :id_espacio );";
+        $sql = "insert into horario (hora_inicio, hora_termino, id_dia, id_grupo, id_espacio) 
+                values ( :hora_inicio , :hora_termino , :id_dia , :id_grupo , :id_espacio );";
         $insertar = $this->conn->prepare($sql);
         $insertar -> bindParam(':hora_inicio', $data['hora_inicio'], PDO::PARAM_STR);
-        $insertar -> bindParam(':hora_inicio', $data['hora_inicio'], PDO::PARAM_STR);
+        $insertar -> bindParam(':hora_termino', $data['hora_termino'], PDO::PARAM_STR);
         $insertar -> bindParam(':id_dia', $data['id_dia'], PDO::PARAM_INT);
-        $insertar -> bindParam(':id_grupo', $data['id_grupo'], PDO::PARAM_INT);
+        $insertar -> bindParam(':id_grupo', $data['id_grupo'], PDO::PARAM_STR);
         $insertar -> bindParam(':id_espacio', $data['id_espacio'], PDO::PARAM_INT);
         $insertar -> execute();
         $result = $insertar -> rowCount();

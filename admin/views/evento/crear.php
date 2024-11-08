@@ -3,6 +3,13 @@
 
 <form method="post" 
 action="evento.php?accion=<?php if($accion == "crear"):echo('nuevo'); else:echo('modificar&id='.$id);endif;?>">
+<?php if ($accion == "crear"): ?>
+<div class="mb-3">
+    <label for="exampleevento" class="form-label">Codigo del evento</label>
+    <input type="text" name="data[id_evento]" placeholder="Escribe aqui el nombre" class="form-control" 
+    value="<?php if(isset($eventos['id_evento'])):echo($eventos['id_evento']);endif;?>" />
+</div>
+<?endif;?>
 <div class="mb-3">
     <label for="exampleevento" class="form-label">Nombre del evento</label>
     <input type="text" name="data[evento]" placeholder="Escribe aqui el nombre" class="form-control" 

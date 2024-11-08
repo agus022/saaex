@@ -29,21 +29,6 @@ action="horario.php?accion=<?php if($accion == "crear"):echo('nuevo'); else:echo
     </select>
 </div>
 <div class="mb-3">
-    <label for="">Dia</label>
-    <select name="data[id_dia]" id="" class="form-select form-select-sm" aria-label="Small select example">
-    <option>Dias disponibles</option>
-        <?php foreach($dias as $dia):?>
-        <?php 
-        $selecionar = "";
-        if($secciones['id_dia'] == $dia['id_dia']){
-            $selecionar = "selected";
-        }        
-        ?>
-        <option value="<?php echo($dia['id_dia']);?>"<?php echo($selecionar);?>><?php echo($dia['dia']);?></option>
-        <?php endforeach;?>
-    </select>
-</div>
-<div class="mb-3">
     <label for="">Grupo</label>
     <select name="data[id_grupo]" id="" class="form-select form-select-sm" aria-label="Small select example">
     <option>Grupos disponibles</option>
@@ -54,7 +39,7 @@ action="horario.php?accion=<?php if($accion == "crear"):echo('nuevo'); else:echo
             $selecionar = "selected";
         }        
         ?>
-        <option value="<?php echo($grupo['id_grupo']);?>"<?php echo($selecionar);?>><?php echo($grupo['grupo']);?></option>
+        <option value="<?php echo($grupo['id_grupo']);?>"<?php echo($selecionar);?>><?php echo($grupo['id_grupo']);?></option>
         <?php endforeach;?>
     </select>
 </div>

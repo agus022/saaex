@@ -1,9 +1,9 @@
 <?php require('views/header/header_administrador.php'); ?>
 <h1>Espacio</h1>
     <?php 
-      if (isset($mensaje)) : $app->alert($tipo,$mensaje);endif;
+      if (isset($mensaje)) : $app->alerta($tipo,$mensaje);endif;
     ?>
-    <a href="dia.php?accion=crear" class="btn btn-success">Nuevo</a>
+    <a href="espacio.php?accion=crear" class="btn btn-success">Nuevo</a>
     <table class="table">
   <thead>
     <tr>
@@ -12,6 +12,7 @@
         <th scope="col">Campus</th>
         <th scope="col">Edificio</th>
         <th scope="col">Sala</th>
+        <th scope="col">Opciones</th>
     </tr>
   </thead>
   <tbody>
