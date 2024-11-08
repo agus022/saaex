@@ -8,7 +8,7 @@ class actividad extends Sistema {
                 values (:actividad, :descripcion, :id_tipo);";
         $insertar = $this->conn->prepare($sql);
         $insertar -> bindParam(':actividad', $data['actividad'], PDO::PARAM_STR);
-        $insertar -> bindParam(':descripcion', $data['descripcion'], PDO::PARAM_INT);
+        $insertar -> bindParam(':descripcion', $data['descripcion'], PDO::PARAM_STR);
         $insertar -> bindParam(':id_tipo', $data['id_tipo'], PDO::PARAM_INT);
         $insertar -> execute();
         $result = $insertar -> rowCount();
@@ -57,6 +57,15 @@ class actividad extends Sistema {
         $this->conexion();
         $result = [];
         $consulta = "select a.*, t.tipo from actividad a join tipo t on t.id_tipo = a.id_tipo";
+        $sql = $this->conn->prepare($consulta);
+        $sql->execute();
+        $result = $sql-> fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+    function readAllTipo(){
+        $this->conexion();
+        $result = [];
+        $consulta = "select * from tipo";
         $sql = $this->conn->prepare($consulta);
         $sql->execute();
         $result = $sql-> fetchAll(PDO::FETCH_ASSOC);

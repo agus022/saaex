@@ -1,12 +1,14 @@
 <?php
-include ('actividad.class.php');
-$app = new actividad;
+include ('horario.class.php');
+$app = new horario;
 $accion = (isset($_GET['accion']) ? $_GET['accion'] : null); 
 $id = (isset($_GET['id'])) ? $_GET['id'] : null;
 switch ($accion){
     case 'crear':
-        $tipos = $app -> readAllTipo(); 
-        include "views/actividad/crear.php";
+        $dias = $app -> readAllDias(); 
+        $grupos = $app -> readAllGrupo();
+        $espacios = $app -> readAllEspacio();
+        include "views/horario/crear.php";
         break;
     case 'nuevo':
         $data = $_POST['data'];
@@ -18,13 +20,15 @@ switch ($accion){
             $mensaje = "Hubo un error, no se pudo registar correctamente.";
             $tipo = "danger";
         }
-        $actividades = $app -> readAll();
-        include "views/actividad/index.php";
+        $horarios = $app -> readAll();
+        include "views/horario/index.php";
         break;
     case 'modificar':
-        $actividades = $app -> readOne($id);
-        $tipos = $app -> readAllTipo();
-        include "views/actividad/crear.php";
+        $horarios = $app -> readOne($id);
+        $dias = $app -> readAllDias();
+        $grupos = $app -> readAllGrupo();
+        $espacios = $app -> readAllEspacio();
+        include "views/horario/crear.php";
         break;
     case 'actualizar':
         $data = $_POST['data'];
@@ -36,8 +40,8 @@ switch ($accion){
             $mensaje = "Hubo un error, no se pudo actualizar.";
             $tipo = "danger";
         }
-        $actividades = $app -> readAll();
-        include "views/actividad/index.php";
+        $horarios = $app -> readAll();
+        include "views/horario/index.php";
         break;
     case 'eliminar':
         $id = (isset($_GET['id'])) ? $_GET['id'] : null;
@@ -53,11 +57,11 @@ switch ($accion){
                 }
             } 
         }
-        $actividades = $app -> readAll();
-        include "views/actividad/index.php";
+        $horarios = $app -> readAll();
+        include "views/horario/index.php";
         break;
     default:
-        $actividades = $app->readAll();
-        include "views/actividad/index.php";
+        $horarios = $app->readAll();
+        include "views/horario/index.php";
 }
 ?>
