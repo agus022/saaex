@@ -22,12 +22,12 @@ action="evento.php?accion=<?php if($accion == "crear"):echo('nuevo'); else:echo(
 </div>
 <div class="mb-3">
     <label for="exampleevento" class="form-label">Hora de inicio</label>
-    <input type="time" name="data[hora_inicio]" placeholder="Escribe aqui la hora" class="form-control" 
+    <input type="datetime-local" name="data[hora_inicio]" placeholder="Escribe aqui la hora" class="form-control" 
     value="<?php if(isset($eventos['hora_inicio'])):echo($eventos['hora_inicio']);endif;?>" />
 </div>
 <div class="mb-3">
     <label for="exampleevento" class="form-label">Hora de termino</label>
-    <input type="time" name="data[hora_termino]" placeholder="Escribe aqui la hora" class="form-control" 
+    <input type="datetime-local" name="data[hora_termino]" placeholder="Escribe aqui la hora" class="form-control" 
     value="<?php if(isset($eventos['hora_termino'])):echo($eventos['hora_termino']);endif;?>" />
 </div>
 <div class="mb-3">
